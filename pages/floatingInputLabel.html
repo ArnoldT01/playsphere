@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Input Label</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: #0d0d0d;
+        }
+
+        .input-group {
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .input-group label {
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            left: 15px;
+            font-size: 16px;
+            pointer-events: none;
+            color: rgb(218, 223, 223);
+            padding: 0 5px;
+            transition: .5s;
+        }
+
+        .input-group input {
+            width: 360px;
+            height: 60px;
+            color: #fff;
+            font-size: 16px;
+            padding: 0 15px;
+            border: 1.2px solid rgb(220, 223, 223);
+            background: transparent;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        .input-group input:focus~label,
+        .input-group input:valid~label {
+            top: 0;
+            background: #010031;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-group">
+        <input type="text" required>
+        <label for="">Surname</label>
+    </div>
+    <div class="input-group">
+        <input type="password" required>
+        <label for="">Password</label>
+    </div>
+</body>
+</html>
