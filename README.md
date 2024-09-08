@@ -9,4 +9,4 @@ A repo for my small single page web apps projects
 #### 2. Floating Input Label 
 ##### project status: done
 #### Overview
-<img src="images/floatingInputLabel.png" width="460px" height="350px" alt="floating input label overview">
+<img src="images/floatingInputLabel.png" width="460px" alt="floating input label overview">
