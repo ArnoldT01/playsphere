@@ -19,4 +19,7 @@ A repo for my small single page web apps projects
 #### Overview
 <img src="images/simpleImageSlider1.png" width="460px" alt="image slider 1 overview">
 
-#### 5. 
+#### 5. Spider Effect HTML | CSS | JS
+##### project status: done
+#### Overview
+<img src="images/spider-effect.png.png" width="460px" alt="spider effect overview">
