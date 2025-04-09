@@ -22,4 +22,4 @@ A repo for my small single page web apps projects
 #### 5. Spider Effect HTML | CSS | JS
 ##### project status: done
 #### Overview
-<img src="images/spider-effect.png.png" width="460px" alt="spider effect overview">
+<img src="images/spider-effect.png" width="460px" alt="spider effect overview">
