@@ -23,3 +23,8 @@ A repo for my small single page web apps projects
 ##### project status: done
 #### Overview
 <img src="images/spider-effect.png" width="460px" alt="spider effect overview">
+
+#### 5. HTML | CSS | JS only Portfolio
+##### project status: done
+#### Overview
+<img src="videos/htmlcssjsportfolio.mp4" width="460px" alt="HTML CSS JS only porfolio overview">
