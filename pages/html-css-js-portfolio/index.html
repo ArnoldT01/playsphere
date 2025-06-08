@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portfolio Landing Page Html and Css Only</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            background: #111016;
+            color: white;
+            font-family: monospace;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0 4vh 0;
+            padding: 20px 12vw;
+            position: sticky;
+            top: 0;
+            background-color: #111016;
+            z-index: 999;
+        }
+
+        #textLogo {
+            font-size:1.8rem;
+            text-decoration: none;
+            color: #014fc2;
+            font-weight: bold;
+            transition: .5s ease;
+            cursor: pointer;
+        }
+
+        #textLogo:hover {
+            transform: scale(1.1);
+        }
+
+        header nav {
+            display: none;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: .9rem;
+            padding-bottom: 2px;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        header nav a:hover,
+        header nav a.active {
+            border-bottom: 2px solid #014fc2;
+            color: #014fc2;
+        }
+
+        header,
+        main {
+            padding: 0 12vw;
+        }
+
+        main div {
+            justify-content: center;
+            align-content: center;
+        }
+
+        #menuToggle {
+            display: block;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        #navMenu {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            background-color: #111016;
+            position: absolute;
+            top: 70px;
+            right: 12vw;
+            padding: 10px 20px;
+            border: 1px solid #014fc2;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+
+        #navMenu a {
+            padding: 8px 0;
+        }
+
+        #navMenu.show {
+            display: flex;
+        }
+
+        .imageContainer img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        #mainHeading span,
+        #subHeading span {
+            color: #014fc2;
+        }
+
+        #typewriter::after {
+            content: "|";
+            animation: blink 1s infinite;
+            margin-left: 2px;
+            color: #014fc2;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .mediaIcons i {
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid #014fc2;
+            border-radius: 50%;
+            padding: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .mediaIcons i:hover {
+            transition: .3s;
+            background-color: #014fc2;
+            color: #111016;
+            transform: scale(1.2);
+        }
+
+        #hireMeBtn {
+            padding: 8px 20px;
+            margin: 20px 0 10px 0;
+            background: transparent;
+            border: 2px solid #014fc2;
+            color: #fff;
+            letter-spacing: 3px;
+            border-radius: 8px;
+        }
+
+        #hireMeBtn:hover {
+            background-color: #014fc2;
+            transition: .5s;
+        }
+
+        section {
+            /* min-height: 95vh; */
+        }
+
+        .serviceCards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #014fc2;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #1a1a25;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .card h3 {
+            color: #014fc2;
+            margin-bottom: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background-color: #222232;
+        }
+
+        @media screen and (min-width: 768px) {
+            .serviceCards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .serviceCards {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .skillsGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            overflow: hidden;
+        }
+
+        .skillCard {
+            background-color: #1a1a25;
+            border: 1px solid #014fc2;
+            border-radius: 10px;
+            padding: 30px 0;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline {
+            position: relative;
+            margin-left: 20px;
+            border-left: 2px solid #014fc2;
+            padding-left: 30px;
+        }
+
+        .timelineItem {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timelineDot {
+            position: absolute;
+            left: -10px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background-color: #014fc2;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px #014fc2;
+        }
+
+        .timelineContent {
+            background-color: #1a1a25;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 4px solid #014fc2;
+        }
+
+        .timelineContent h3 {
+            margin: 0 0 5px;
+            color: #fff;
+        }
+
+        .timelineContent span {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .timelineContent p {
+            margin-top: 10px;
+            color: #ccc;
+        }
+
+        .contactForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contactForm .formRow {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contactForm input,
+        .contactForm textarea {
+            padding: 12px;
+            background-color: #1a1a25;
+            border: 1px solid #014fc2;
+            border-radius: 8px;
+            color: #fff;
+            font-family: monospace;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .contactForm input::placeholder,
+        .contactForm textarea::placeholder {
+            color: #aaa;
+        }
+
+        .contactForm button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #014fc2;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+
+        .contactForm button:hover {
+            background-color: #013aa3;
+        }
+
+        @media screen and (min-width: 600px) {
+            .contactForm .formRow {
+                flex-direction: row;
+            }
+
+            .contactForm .formRow input {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+
+            body {
+                font-size: 1rem;
+            }
+
+            header {
+                padding-top: 4vh;
+                padding-bottom: 4vh;
+            }
+
+            #home {
+                min-height: 70vh;
+            }
+
+            #menuToggle {
+                display: none;
+            }
+
+            #navMenu {
+                display: block;
+                display: flex !important;
+                flex-direction: row;
+                position: static;
+                background: none;
+                border: none;
+                padding: 0;
+            }
+
+            main {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                gap: 5vw;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animated-section {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-left {
+            transform: translateX(-100px);
+        }
+
+        .animate-right {
+            transform: translateX(100px);
+        }
+
+        .animated-section.show.animate-left {
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        .animated-section.show.animate-right {
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" id="textLogo">Arnold</a>
+        <div id="menuToggle" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <nav id="navMenu">
+            <a href="#home" class="active" data-section="home">Home</a>
+            <a href="#services" data-section="services">Services</a>
+            <a href="#skills" data-section="skills">Skills</a>
+            <a href="#education" data-section="education">Education</a>
+            <a href="#experience" data-section="experience">Experience</a>
+            <a href="#contact" data-section="contact">Contact</a>
+        </nav>
+    </header>
+
+    <main id="home">
+        <div class="imageContainer">
+            <img src="images/photo.jpg" alt="">
+        </div>
+        <div class="contentContainer">
+            <h1 id="mainHeading">Hi, It's <span id="nameTypewriter"></span></h1>
+            <h2 id="subHeading">I'm a <span id="typewriter"></span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum molestie est at eros aliquet congue. Vestibulum mattis tortor velit, at volutpat lectus varius sit amet. Proin egestas ipsum ac erat venenatis, ac finibus lacus luctus. Praesent non enim arcu. Vestibulum venenatis orci at nibh bibendum, et egestas neque accumsan.</p>
+            <div class="mediaIcons">
+                <a href=""><i class="fa fa-brands fa-linkedin"></i></a>
+                <a href=""><i class="fa fa-brands fa-github"></i></a>
+                <a href=""><i class="fa fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa fa-brands fa-instagram"></i></a>
+            </div>
+            <button id="hireMeBtn">Hire Me</button>
+        </div>
+    </main>
+
+    <section id="services" style="padding: 50px 12vw;" class="animated-section animate-left">
+        <h2 style="color:#014fc2; margin-bottom: 30px;">Services</h2>
+        <div class="serviceCards">
+            <div class="card">
+                <h3>Full-Stack Development</h3>
+                <p>End-to-end development with modern technologies including React, Node.js, and MongoDB.</p>
+            </div>
+            <div class="card">
+                <h3>UI/UX Design</h3>
+                <p>Designing intuitive user interfaces and seamless user experiences with Figma & CSS3.</p>
+            </div>
+            <div class="card">
+                <h3>API Integration</h3>
+                <p>Integrating third-party services and building RESTful APIs to connect front-end and back-end.</p>
+            </div>
+            <div class="card">
+                <h3>Responsive Design</h3>
+                <p>Crafting mobile-friendly layouts using Flexbox, Grid, and media queries.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" style="padding: 50px 12vw;" class="animated-section animate-right">
+        <h2 style="color:#014fc2; margin-bottom: 30px;">Skills</h2>
+        <div class="skillsGrid">
+            <div class="skillCard">HTML</div>
+            <div class="skillCard">CSS</div>
+            <div class="skillCard">JavaScript</div>
+            <div class="skillCard">React</div>
+            <div class="skillCard">Node.js</div>
+            <div class="skillCard">Express</div>
+            <div class="skillCard">Python</div>
+            <div class="skillCard">Django</div>
+            <div class="skillCard">Git</div>
+            <div class="skillCard">SQL</div>
+            <div class="skillCard">NoSQL</div>
+            <div class="skillCard">REST APIs</div>
+        </div>
+    </section>
+
+    <section id="education" style="padding: 50px 12vw;" class="animated-section animate-left">
+        <h2 style="color:#014fc2;">Education</h2>
+        <p>B.Sc. in Computer Science - XYZ University<br>Graduated: 2022</p>
+    </section>
+
+    <section id="experience" style="padding: 50px 12vw;" class="animated-section animate-right">
+        <h2 style="color:#014fc2; margin-bottom: 30px;">Experience</h2>
+        <div class="timeline">
+            <div class="timelineItem">
+                <div class="timelineDot"></div>
+                <div class="timelineContent">
+                    <h3>Frontend Developer – ABC Corp</h3>
+                    <span>Jan 2023 – Present</span>
+                    <p>Led frontend migration to React. Improved performance by 35%, built reusable UI components, and collaborated with cross-functional teams.</p>
+                </div>
+            </div>
+
+            <div class="timelineItem">
+                <div class="timelineDot"></div>
+                <div class="timelineContent">
+                    <h3>Intern – XYZ Technologies</h3>
+                    <span>Jun 2022 – Dec 2022</span>
+                    <p>Worked on internal tools using JavaScript and Python. Assisted in bug fixing, unit testing, and documentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="padding: 50px 12vw;" class="animated-section animate-left">
+        <h2 style="color:#014fc2; margin-bottom: 30px;">Contact</h2>
+        <form class="contactForm">
+            <div class="formRow">
+                <input type="text" name="firstName" placeholder="First Name" required>
+                <input type="text" name="lastName" placeholder="Last Name" required>
+            </div>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script>
+        const nameText = "Arnold";
+        const nameEl = document.getElementById("nameTypewriter");
+        let nameIndex = 0;
+
+        function typeName() {
+            if (nameIndex < nameText.length) {
+                nameEl.innerHTML += nameText.charAt(nameIndex);
+                nameIndex++;
+                setTimeout(typeName, 150);
+            } else {
+                startProfessionTyping();
+            }
+        }
+
+        const professions = [" Software Engineer ", " Tech Enthusiast ", " Problem Solver "];
+        const typewriterEl = document.getElementById("typewriter");
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeProfession() {
+            const currentWord = professions[wordIndex];
+            if (isDeleting) {
+                typewriterEl.textContent = currentWord.substring(0, charIndex--);
+            } else {
+                typewriterEl.textContent = currentWord.substring(0, charIndex++);
+            }
+
+            let typingSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typingSpeed = 1500;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % professions.length;
+                typingSpeed = 500;
+            }
+
+            setTimeout(typeProfession, typingSpeed);
+        }
+
+        function startProfessionTyping() {
+            setTimeout(typeProfession, 500);
+        }
+
+        window.onload = typeName;
+
+        function toggleMenu() {
+            const navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("show");
+        }
+
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById("navMenu").classList.remove("show");
+            });
+        });
+
+        const navLinks = document.querySelectorAll('#navMenu a');
+        const sections = document.querySelectorAll('main, section');
+
+        window.addEventListener('scroll', () => {
+            let current = 'home';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.section === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.3,
+            }
+        );
+
+        document.querySelectorAll('.animated-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
