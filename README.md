@@ -26,5 +26,8 @@ A repo for my small single page web apps projects
 
 #### 5. HTML | CSS | JS only Portfolio
 ##### project status: done
+##### Description : This is a simple project I built using only HTML, CSS, and JavaScript during the early stages of my learning journey. It was one of my first attempts at putting together a complete front-end project, focusing on building a clean layout and incorporating basic interactivity without the use of any frameworks or libraries.
 #### Overview
-<img src="videos/htmlcssjsportfolio.mp4" width="460px" alt="HTML CSS JS only porfolio overview">
+<video src="https://user-images.githubusercontent.com/username/uploaded-video.mp4" controls width="600">
+  Your browser does not support the video tag.
+</video>
