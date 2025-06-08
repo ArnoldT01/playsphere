@@ -29,6 +29,6 @@ A repo for my small single page web apps projects
 ##### Description: 
 This is a simple project I built using only HTML, CSS, and JavaScript during the early stages of my learning journey. It was one of my first attempts at putting together a complete front-end project, focusing on building a clean layout and incorporating basic interactivity without the use of any frameworks or libraries.
 #### Overview
-<video src="https://github.com/user-attachments/assets/43cb8892-adf2-47a3-98b8-84bc7d7d3ce5" width="300" autoplay muted loop playsinline>
+<video src="https://github.com/user-attachments/assets/43cb8892-adf2-47a3-98b8-84bc7d7d3ce5" width="460px" autoplay muted loop playsinline>
   Your browser does not support the video tag.
 </video>
