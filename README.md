@@ -37,3 +37,10 @@ This is a simple project I built using only HTML, CSS, and JavaScript during the
 ##### project status: done
 #### Overview
 <img src="images/get-started.png" width="460px" alt="image slider 1 overview">
+
+#### 7. Sign in and Sign up pages
+##### project status: done
+#### Overview
+<img src="images/sign-in.png" width="460px" alt="image slider 1 overview">
+<br />
+<img src="images/sign-up.png" width="460px" alt="image slider 1 overview">
