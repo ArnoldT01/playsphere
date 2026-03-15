@@ -32,3 +32,8 @@ This is a simple project I built using only HTML, CSS, and JavaScript during the
 <video src="https://github.com/user-attachments/assets/43cb8892-adf2-47a3-98b8-84bc7d7d3ce5" width="460px" autoplay muted loop playsinline>
   Your browser does not support the video tag.
 </video>
+
+#### 6. Get started page 
+##### project status: done
+#### Overview
+<img src="images/get-started.png" width="460px" alt="image slider 1 overview">
