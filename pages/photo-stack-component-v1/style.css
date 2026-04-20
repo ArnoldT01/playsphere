@@ -1,0 +1,57 @@
+.photostack {
+    display: flex;
+    justify-content: center;
+    margin-top: 30vh;
+}
+
+.image-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0 -10px;
+    transform: rotate(-10deg);
+    transition: transform 0.3s ease, z-index 0.3s ease;
+    z-index: 1;
+}
+
+/* another effect */
+
+/* .image-container:nth-child(2) {
+    transform: rotate(5deg);
+}
+.image-container:nth-child(3) {
+    transform: rotate(-5deg);
+} */
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-container:hover {
+    transform: rotate(0deg) scale(1.1);
+    z-index: 10;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
