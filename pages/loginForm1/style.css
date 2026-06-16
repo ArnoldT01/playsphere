@@ -1,0 +1,205 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    background: url('img/bg.jpg') center / cover no-repeat fixed;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 0, 50, 0.65) 0%, rgba(0, 30, 70, 0.65) 100%);
+}
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Glass card */
+.login_box {
+    width: 360px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    padding: 44px 36px 36px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Header */
+.login-header {
+    margin-bottom: 32px;
+}
+
+.login-header span {
+    display: block;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+}
+
+.login-header p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Input groups */
+.input_box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 14px 44px 14px 16px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.input-field::placeholder {
+    color: transparent;
+}
+
+.input-field:focus {
+    border-color: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.11);
+}
+
+/* Floating label */
+.label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    transition: top 0.22s ease, font-size 0.22s ease, color 0.22s ease, background 0.22s ease, padding 0.22s ease;
+    border-radius: 4px;
+}
+
+.input-field:focus ~ .label,
+.input-field:valid ~ .label {
+    top: 0;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.12);
+    padding: 1px 6px;
+    transform: translateY(-50%);
+}
+
+/* Icon */
+.icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.35);
+    pointer-events: none;
+}
+
+/* Remember / forgot */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    font-size: 13px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    user-select: none;
+}
+
+.remember-me input[type="checkbox"] {
+    accent-color: #7c3aed;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.remember-forgot a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.remember-forgot a:hover {
+    color: #fff;
+}
+
+/* Login button */
+.btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Sign up link */
+.signup-link {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.signup-link a {
+    color: #a78bfa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.signup-link a:hover {
+    color: #c4b5fd;
+}

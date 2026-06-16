@@ -3,35 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <title>Login Form 1</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="wrapper">
         <div class="login_box">
+
             <div class="login-header">
-                <span>Login</span>
+                <span>Welcome back</span>
+                <p>Sign in to your account</p>
             </div>
+
             <div class="input_box">
                 <input type="text" id="user" class="input-field" required>
                 <label for="user" class="label">Username</label>
                 <i class="bx bx-user icon"></i>
             </div>
-            <div class="input_box"></div>
+
+            <div class="input_box">
                 <input type="password" id="pass" class="input-field" required>
                 <label for="pass" class="label">Password</label>
                 <i class="bx bx-lock-alt icon"></i>
             </div>
+
             <div class="remember-forgot">
-                <div class="remember-me">
+                <label class="remember-me">
                     <input type="checkbox" id="remember">
-                    <label for="remember"> Remember me</label>
-                </div>
+                    Remember me
+                </label>
+                <a href="#">Forgot password?</a>
             </div>
+
+            <button class="btn">Login</button>
+
+            <div class="signup-link">
+                Don't have an account? <a href="#">Sign up</a>
+            </div>
+
         </div>
     </div>
-    
+
 </body>
 </html>
