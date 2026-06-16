@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Floating Input Label</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,11 +20,31 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            gap: 64px;
             background: #0d0d0d;
+            padding: 60px 24px;
+            font-family: 'Inter', sans-serif;
         }
 
+        /* Section labels */
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #444;
+        }
+
+        /* ── Style 1 (original) ── */
         .input-group {
-            margin: 20px 0;
+            margin: 0;
             position: relative;
         }
 
@@ -49,21 +72,103 @@
             border-radius: 5px;
         }
 
-        .input-group input:focus~label,
-        .input-group input:valid~label {
+        .input-group input:focus ~ label,
+        .input-group input:valid ~ label {
             top: 0;
             background: #010031;
+        }
+
+        /* ── Style 2 (resume-build) ── */
+        .fi-wrapper {
+            position: relative;
+            width: 360px;
+            border: 1px solid #2a2a3a;
+            border-radius: 12px;
+            background: #111118;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .fi-wrapper:focus-within {
+            box-shadow: 0 0 0 2px #3b82f6;
+            border-color: transparent;
+        }
+
+        .fi-label {
+            position: absolute;
+            pointer-events: none;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: #7a7a9a;
+            font-weight: 400;
+            transition: top 0.15s ease, font-size 0.15s ease, color 0.15s ease, transform 0.15s ease;
+        }
+
+        .fi-wrapper.filled .fi-label {
+            top: 7px;
+            transform: none;
+            font-size: 11px;
+            color: #3b82f6;
+            font-weight: 500;
+        }
+
+        .fi-input {
+            width: 100%;
+            padding: 10px 16px;
+            background: transparent;
+            outline: none;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #f0f0f5;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .fi-wrapper.filled .fi-input {
+            padding-top: 20px;
+            padding-bottom: 4px;
         }
     </style>
 </head>
 <body>
-    <div class="input-group">
-        <input type="text" required>
-        <label for="">Surname</label>
+
+    <div class="section">
+        <span class="section-title">Style 1</span>
+        <div class="input-group">
+            <input type="text" required>
+            <label>Surname</label>
+        </div>
+        <div class="input-group">
+            <input type="password" required>
+            <label>Password</label>
+        </div>
     </div>
-    <div class="input-group">
-        <input type="password" required>
-        <label for="">Password</label>
+
+    <div class="section">
+        <span class="section-title">Style 2</span>
+        <div class="fi-wrapper" data-fi>
+            <span class="fi-label">First name</span>
+            <input class="fi-input" type="text" autocomplete="off">
+        </div>
+        <div class="fi-wrapper" data-fi>
+            <span class="fi-label">Email address</span>
+            <input class="fi-input" type="email" autocomplete="off">
+        </div>
+        <div class="fi-wrapper" data-fi>
+            <span class="fi-label">Password</span>
+            <input class="fi-input" type="password" autocomplete="off">
+        </div>
     </div>
+
+    <script>
+        document.querySelectorAll('[data-fi]').forEach(wrapper => {
+            const input = wrapper.querySelector('.fi-input');
+            input.addEventListener('input', () => {
+                wrapper.classList.toggle('filled', Boolean(input.value));
+            });
+        });
+    </script>
+
 </body>
 </html>
