@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio 13</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo/logo.png" alt="Logo">
+            </div>
+
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+            <nav id="nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Page</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Shortcodes</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#" class="shop">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="intro">I'm Jane Doe, Ux/Ui Designer & Art Director</p>
+            <h1>I Love to Create</h1>
+            <p class="description">
+                Exercitation ullamco laboris nisi dolo rem. Quis no at with strud exe.rcitation ullamco. 
+                Ut enim ad minim veniam. quis no at.
+            </p>
+            <a href="#" class="btn">Contact Me</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="assets/images/model.png" alt="Model">
+        </div>
+    </section>
+
+    <section class="concepts">
+        <div class="section-title">
+            <p>My Concepts.</p>
+        </div>
+
+        <div class="concepts-images-container">
+            <div class="concepts-images">
+                <img src="assets/images/concepts/1.png" alt="concept 1">
+                <img src="assets/images/concepts/2.png" alt="concept 2">
+                <img src="assets/images/concepts/3.png" alt="concept 3">
+                <img src="assets/images/concepts/4.jpg" alt="concept 4">
+                <img src="assets/images/concepts/5.jpg" alt="concept 5">
+                <img src="assets/images/concepts/6.png" alt="concept 6">
+                <img src="assets/images/concepts/7.png" alt="concept 7">
+                <img src="assets/images/concepts/8.png" alt="concept 8">
+                <img src="assets/images/concepts/9.png" alt="concept 9">
+            </div>
+        </div>
+
+        <a href="#" class="btn load-more">Load More ></a>
+        
+    </section>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
